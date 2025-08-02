@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jane Doe | Home</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #f0f0f5;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    nav {
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      animation: slideDown 0.6s ease forwards;
+    }
+    nav a {
+      color: #f0f0f5cc;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover, nav a.active {
+      color: #fff;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after, nav a.active::after {
+      width: 100%;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 50px auto 80px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 40px 50px;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #fff;
+      padding-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+    p, ul li {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #eaeaf0cc;
+      line-height: 1.6;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      transition: color 0.3s ease;
+      cursor: default;
+    }
+    ul li:last-child {
+      border-bottom: none;
+    }
+    ul li:hover {
+      color: #fff;
+    }
+    button {
+      background: linear-gradient(45deg, #764ba2, #667eea);
+      color: white;
+      border: none;
+      padding: 14px 35px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(102,126,234,0.6);
+      transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    button:hover {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      box-shadow: 0 8px 20px rgba(118,75,162,0.8);
+      transform: translateY(-3px);
+    }
+    button:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px #eaeaf0cc;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1rem;
+      color: #dcdce6aa;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      main {
+        margin: 30px 20px 60px;
+        padding: 30px 20px;
+      }
+      section h2 {
+        font-size: 1.8rem;
+      }
+      p, ul li {
+        font-size: 1rem;
+      }
+      button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      nav {
+        gap: 20px;
+        padding: 12px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="projects.html">Projects</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm Jane, a passionate developer with 5+ years of experience building scalable web applications. I love crafting clean, user-friendly interfaces and solving complex problems with elegant code.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>JavaScript (ES6+), TypeScript</li>
+        <li>React, Vue.js</li>
+        <li>Node.js, Express</li>
+        <li>HTML5, CSS3, SASS</li>
+        <li>RESTful APIs & GraphQL</li>
+        <li>Docker, Git, CI/CD</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Interested in working together? Click the button below to say hello!</p>
+      <button id="contactBtn">Say Hello</button>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Jane Doe. All rights reserved.
+  </footer>
+
+  <script>
+    // Highlight active nav link (simple, based on current URL)
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      if (link.href === location.href) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Contact button logic
+    const contactBtn = document.getElementById('contactBtn');
+    contactBtn.addEventListener('click', () => {
+      const userEmail = prompt('Please enter your email:');
+      if (userEmail && validateEmail(userEmail)) {
+        alert(`Thanks for reaching out! I'll contact you at ${userEmail} soon.`);
+      } else if (userEmail) {
+        alert('That doesn’t look like a valid email address. Please try again.');
+      }
+    });
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email.toLowerCase());
+    }
+  </script>
+</body>
+</html>
